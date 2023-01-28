@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: cn-workshop
+  name: cn-workshop
+spec:
+  ports:
+  - port: 2001
+    protocol: TCP
+    targetPort: 2001
+  selector:
+    app: cn-workshop
+status:
+  loadBalancer: {}
