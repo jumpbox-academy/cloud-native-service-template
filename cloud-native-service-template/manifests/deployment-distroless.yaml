@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: cn-workshop-distroless
+  name: cn-workshop-distroless
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cn-workshop
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: cn-workshop
+    spec:
+      containers:
+      - image: sikiryl/cn-workshop:1.0.0-x86-distroless
+        name: cn-workshop
+        ports:
+        - containerPort: 2001
+        resources: {}
+        envFrom:
+        - configMapRef:
+            name: cn-workshop
+status: {}

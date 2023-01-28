@@ -1,5 +1,5 @@
 
-FROM rust as build
+FROM rust:1.67.0-slim-bullseye as build
 COPY . /app
 WORKDIR /app
 RUN cargo build --release
