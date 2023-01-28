@@ -1,0 +1,17 @@
+
+FROM rust as build
+COPY . /app
+WORKDIR /app
+RUN cargo build --release
+
+# use google distroless as runtime image
+FROM gcr.io/distroless/cc-debian11
+
+# copy app from builder
+COPY --from=build /app/target/release/cloud-native-service-template /app/cloud-native-service-template
+WORKDIR /app
+
+# start the application
+CMD ["./cloud-native-service-template"]
+
+

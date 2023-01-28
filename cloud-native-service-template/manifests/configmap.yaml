@@ -1,0 +1,7 @@
+apiVersion: v1
+data:
+  JUMPBOX: Tech Passion | Sharing | Society
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: cn-workshop
